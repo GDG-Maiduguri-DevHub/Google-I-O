@@ -1,7 +1,9 @@
+import Headline from "./Headline";
+
 const Home = () => (
-  <>
-    home
-  </>
+  <main>
+    <Headline />
+  </main>
 );
 
 export default Home;

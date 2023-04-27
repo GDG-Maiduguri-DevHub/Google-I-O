@@ -15,7 +15,7 @@ const Header = () => (
     </div>
 
     <div className="btn-div">
-      <Link to="*" className="btn">
+      <Link to="*" className="btn btn1 white-text">
         Notify me
       </Link>
     </div>
