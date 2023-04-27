@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+@font-face {
+  font-family: "google_sans";   /*Can be any text*/
+  src: local("ProductSans"),
+    url("./assets/font/ProductSans-Regular.ttf") format("truetype");
+}
+
+@mixin flex($direction, $align, $justify) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+/* General styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #364f6b;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+a {
+  background: none;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.google-font {
+  font-family: 'google_sans';
+}
+
+.white-text {
+  color: #fff;
+}
+
+.black-text {
+  color: #000;
+}
+
+
+// HEADER STYLING
+
