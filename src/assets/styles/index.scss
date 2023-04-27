@@ -13,6 +13,13 @@
   justify-content: $justify;
 }
 
+@mixin font($size, $line, $weigth) {
+  font-style: normal;
+  font-weight: $weigth;
+  font-size: $size;
+  line-height: $line;
+}
+
 /* General styling */
 * {
   box-sizing: border-box;
@@ -57,6 +64,62 @@ img {
   color: #000;
 }
 
+.btn {
+  color: #fff;
+  background-color: #0B9D58;
+  padding: 7px 18px 6px;
+  border-radius: 45px;
+  text-transform: uppercase;
+  @include font(10px, 14px, 500);
+}
+
+.container {
+  padding: 15px 4%;
+}
+
 
 // HEADER STYLING
+header {
+  @include flex(row, center, space-between);
+  background: #fff;
+  height: auto;
 
+  .logo {
+    width: 100px;
+  }
+
+  .io-logo {
+    width: 85px;
+  }
+
+  .btn-div {
+    height: auto;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  header {
+    .logo {
+      width: 160px;
+    }
+    .io-logo {
+      width: 120px;
+    }
+  }
+  .container {
+    padding: 24px 4%;
+  }
+
+  .btn {
+    @include font(16px, 21px, 500);
+    padding: 10px 20px;
+  }
+}
+
+
+@media only screen and (min-width: 1366px) {
+  .btn {
+    @include font(16px, 21px, 500);
+    padding: 12px 24px;
+  }
+}
