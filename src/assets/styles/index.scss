@@ -148,6 +148,32 @@ main {
       }
     }
   }
+
+  // COUNTER SECTION---------------------------------------------------------------------
+  .counter {
+    margin: 30px auto;
+    @include flex(row, stretch, space-between, 20px);
+    flex-wrap: wrap;
+
+    .clock {
+      flex: 80%;
+    }
+
+    .counter-act {
+      flex: 20%;
+    }
+  }
+}
+
+
+// MEDIA QUERIES -------------------------------------------------------------------------------
+
+@media only screen and (min-width: 768px) {
+  main {
+    .counter {
+      flex-wrap: nowrap;
+    }
+  }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -171,17 +197,17 @@ main {
   main{
     padding: 30px 0;
 
-  .headline {
-    flex-wrap: nowrap;
+    .headline {
+      flex-wrap: nowrap;
 
-    .headline-act {
-      min-height: 500px;
-      div div p {
-        @include font(18px, 28px, 400);
+      .headline-act {
+        min-height: 500px;
+        div div p {
+          @include font(18px, 28px, 400);
+        }
       }
     }
   }
-}
 }
 
 
