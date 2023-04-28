@@ -270,7 +270,31 @@ main {
       border-radius: 12px;
     }
   }
+
+
+  // MAIN FOOTER STYLING -----------------------------------------------------
+  .main-footer {
+    div {
+      height: 30vh;
+      border-radius: 20px;
+      @include background("../images/5.svg", center, no-repeat, cover);
+    }
+  }
 }
+
+
+// FOOTER STYLING ----------------------------------------------------------------------
+footer {
+  text-align: center;
+  padding: 10px;
+  background: #000;
+}
+
+
+
+
+
+
 
 
 // MEDIA QUERIES -------------------------------------------------------------------------------
@@ -354,7 +378,6 @@ main {
     }
   }
 }
-
 
 @media only screen and (min-width: 1366px) {
   .btn {
