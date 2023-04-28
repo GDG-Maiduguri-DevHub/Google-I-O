@@ -94,6 +94,11 @@ img {
   padding: 15px 4%;
 }
 
+.center-left {
+  @include flex(column, center, space-between, 0);
+  text-align: center;
+}
+
 
 .small-text {
   @include font(11px, 15px, 200);
@@ -207,12 +212,11 @@ main {
       flex: 25%;
       background: #428EFF;
       padding: 20px;
-      text-align: center;
       border-radius: 12px;
       min-height: 200px;
 
       div {
-        @include flex(column, center, space-evenly, 0);
+        padding: 6% 0;
         max-width: 250px;
         margin: auto;
         height: 100%;
@@ -227,19 +231,72 @@ main {
       }
     }
   }
+
+
+  //  CONNECT STYLING ------------------------------------------------------
+  .connect {
+    @include flex(row, stretch, space-between, 0px);
+
+    .connect-item {
+      @include flex(row, center, center, 0);
+      background-color: #202124;
+      border-radius: 12px;
+      flex: 80%;
+      min-height: 300px;
+      @include background("../images/3.svg", right center, no-repeat, contain);
+
+      .connect-act {
+        padding: 7%;
+        max-width: 400px;
+        height: 100%;
+        background-color: #20212490;
+
+        h2,
+        p {
+          font-weight: 400;
+        }
+
+        .btn {
+          background: transparent;
+          border: 2px solid #fff;
+        }
+      }
+    }
+
+    .art-pic {
+      flex: 20%;
+      display: none;
+      @include background("../images/4.svg", center, no-repeat, cover);
+      border-radius: 12px;
+    }
+  }
 }
 
 
 // MEDIA QUERIES -------------------------------------------------------------------------------
 
 @media only screen and (min-width: 768px) {
+  .center-left {
+    align-items: flex-start;
+    text-align: left;
+  }
   main {
     .counter {
       flex-wrap: nowrap;
+    }
 
-      .counter-act div {
-        align-items: flex-start;
-        text-align: left;
+    .connect {
+      .connect-item {
+        justify-content: flex-start;
+
+        .connect-act {
+          background-color: transparent;
+
+        }
+      }
+
+      .art-pic {
+        display: block;
       }
     }
   }
@@ -291,6 +348,10 @@ main {
         }
       }
     }
+
+    .connect {
+      min-height: 400px;
+    }
   }
 }
 
@@ -305,6 +366,24 @@ main {
       .headline-act {
         div h1 {
           @include font(57px, 67px, 500);
+        }
+      }
+    }
+
+    .connect {
+      .connect-item {
+        min-height: 500px;
+
+        .connect-act {
+          max-width: 700px;
+
+          h2 {
+            @include font(34px, 40px, 400);
+          }
+
+          p {
+            @include font(19px, 28px, 400);
+          }
         }
       }
     }

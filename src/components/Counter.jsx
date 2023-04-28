@@ -37,7 +37,7 @@ const Counter = () => (
     </div>
 
     <div className="counter-act black-text">
-      <div>
+      <div className="center-left">
         <h3>For Sponsorship</h3>
         <p>Join to build the tech community</p>
         <Link to="/" className="btn btn2">Sponsor Now!</Link>
