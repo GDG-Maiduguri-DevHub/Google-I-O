@@ -11,8 +11,8 @@ const Headline = () => (
       <div>
         <h1 className="white-text">Let's go <br />It's Google I/O <br />June 24, 2023</h1>
         <div>
-          <p className="white-text">Join in the city of Maiduguri</p>
-          <p className="white-text">Venue coming soon!</p>
+          <p className="white-text small-text">Join in the city of Maiduguri</p>
+          <p className="white-text small-text">Venue coming soon!</p>
         </div>
       </div>
 
