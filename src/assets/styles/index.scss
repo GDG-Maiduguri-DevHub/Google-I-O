@@ -1,0 +1,414 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+@font-face {
+  font-family: "google_sans";   /*Can be any text*/
+  src: local("ProductSans"),
+    url("./assets/font/ProductSans-Regular.ttf") format("truetype");
+}
+
+@mixin flex($direction, $align, $justify, $gap) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
+}
+
+@mixin font($size, $line, $weigth) {
+  font-style: normal;
+  font-weight: $weigth;
+  font-size: $size;
+  line-height: $line;
+}
+
+@mixin background($url, $position, $repeat, $size) {
+  background-image: url($url);
+  background-repeat: $repeat;
+  background-position: $position;
+  background-size: $size;
+}
+
+/* General styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #364f6b;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+a {
+  background: none;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.google-font {
+  font-family: 'google_sans';
+}
+
+.white-text {
+  color: #fff;
+}
+
+.black-text {
+  color: #000;
+}
+
+.btn {
+  padding: 8px 18px 7px;
+  @include font(14px, 14px, 500);
+  text-transform: capitalize;
+}
+
+.btn1 {
+  background-color: #0B9D58;
+  border-radius: 45px;
+  text-transform: uppercase;
+}
+
+.btn2 {
+  background: #428EFF;
+  border-radius: 8px;
+}
+
+.container {
+  padding: 15px 4%;
+}
+
+.center-left {
+  @include flex(column, center, space-between, 0);
+  text-align: center;
+}
+
+
+.small-text {
+  @include font(11px, 15px, 200);
+}
+
+
+// HEADER STYLING----------------------------------------------------------------------------------
+header {
+  @include flex(row, center, space-between, 0);
+  background: #fff;
+  height: auto;
+
+  .logo {
+    width: 100px;
+  }
+
+  .io-logo {
+    width: 85px;
+  }
+
+  .btn-div {
+    height: auto;
+  }
+}
+
+main {
+  background: #000;
+  min-height: 100vh;
+
+
+  //HEADLINE SECTION---------------------------------------------------------------------------------
+  .headline {
+    @include flex(row, stretch, space-between, 30px);
+    flex-wrap: wrap;
+  
+    .headline-figure {
+      border-radius: 20px;
+      overflow: hidden;
+      min-height: 300px;
+      flex: 60%;
+      @include background("../images/1.svg", center, no-repeat, cover)
+    }
+    .headline-act {
+      border-radius: 12px;
+      flex: 38%;
+      background: #202124;
+      padding: 24px;
+      @include flex(column, flex-start, space-between, 0);
+      min-height: 300px;
+      @include background("../images/2.svg", right bottom, no-repeat, 50%);
+
+      div {
+        h1{
+          padding-bottom: 20px;
+        }
+      }
+    }
+  }
+
+  // COUNTER SECTION---------------------------------------------------------------------
+  .counter {
+    margin: 30px auto;
+    @include flex(row, stretch, space-between, 20px);
+    flex-wrap: wrap;
+
+    .clock {
+      flex: 75%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      gap: 10px;
+
+      .clock-item {
+        width: 100%;
+        @include flex(column, flex-start, space-between, 5px);
+
+        .boxes {
+          width: 100%;
+          @include flex(row, center, center, 10px);
+
+          div {
+            flex: 1;
+            min-height: 60px;
+            padding: 10px;
+            background: red;
+            border-radius: 12px;
+            @include font(70px, 70px, 600);
+            text-align: center;
+
+            &.blue {
+              background-color: #4C78BC;
+            }
+
+            &.yellow {
+              background-color: #F6B819;
+            }
+
+            &.green {
+              background-color: #0B9D58;
+            }
+
+            &.red {
+              background-color: #E74436;
+            }
+          }
+        }
+      }
+    }
+
+    .counter-act {
+      flex: 25%;
+      background: #428EFF;
+      padding: 20px;
+      border-radius: 12px;
+      min-height: 200px;
+
+      div {
+        padding: 6% 0;
+        max-width: 250px;
+        margin: auto;
+        height: 100%;
+
+        h3 {
+          @include font(25px, 27px, 450);
+        }
+
+        .btn {
+          border: 2px solid #000;
+        }
+      }
+    }
+  }
+
+
+  //  CONNECT STYLING ------------------------------------------------------
+  .connect {
+    @include flex(row, stretch, space-between, 0px);
+
+    .connect-item {
+      @include flex(row, center, center, 0);
+      background-color: #202124;
+      border-radius: 12px;
+      flex: 80%;
+      min-height: 300px;
+      @include background("../images/3.svg", right center, no-repeat, contain);
+
+      .connect-act {
+        padding: 7%;
+        max-width: 400px;
+        height: 100%;
+        background-color: #20212490;
+
+        h2,
+        p {
+          font-weight: 400;
+        }
+
+        .btn {
+          background: transparent;
+          border: 2px solid #fff;
+        }
+      }
+    }
+
+    .art-pic {
+      flex: 20%;
+      display: none;
+      @include background("../images/4.svg", center, no-repeat, cover);
+      border-radius: 12px;
+    }
+  }
+
+
+  // MAIN FOOTER STYLING -----------------------------------------------------
+  .main-footer {
+    div {
+      height: 30vh;
+      border-radius: 20px;
+      @include background("../images/5.svg", center, no-repeat, cover);
+    }
+  }
+}
+
+
+// FOOTER STYLING ----------------------------------------------------------------------
+footer {
+  text-align: center;
+  padding: 10px;
+  background: #000;
+}
+
+
+
+
+
+
+
+
+// MEDIA QUERIES -------------------------------------------------------------------------------
+
+@media only screen and (min-width: 768px) {
+  .center-left {
+    align-items: flex-start;
+    text-align: left;
+  }
+  main {
+    .counter {
+      flex-wrap: nowrap;
+    }
+
+    .connect {
+      .connect-item {
+        justify-content: flex-start;
+
+        .connect-act {
+          background-color: transparent;
+
+        }
+      }
+
+      .art-pic {
+        display: block;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .small-text {
+    @include font(18px, 28px, 400);
+  }
+
+  .btn2 {
+    border-radius: 12px;
+  }
+
+  header {
+    .logo {
+      width: 160px;
+    }
+    .io-logo {
+      width: 120px;
+    }
+  }
+  .container {
+    padding: 20px 4%;
+  }
+
+  .btn {
+    @include font(16px, 21px, 500);
+    padding: 10px 20px;
+  }
+
+  main{
+    padding: 30px 0;
+
+    .headline {
+      flex-wrap: nowrap;
+
+      .headline-act {
+        min-height: 500px;
+      }
+    }
+
+    .counter {
+      .clock {
+        .clock-item {
+          .boxes div {
+            @include font(96px, 90px, 700);
+          }
+        }
+      }
+    }
+
+    .connect {
+      min-height: 400px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1366px) {
+  .btn {
+    @include font(18px, 21px, 500);
+    padding: 12px 24px;
+  }
+  main {
+    .headline {
+      .headline-act {
+        div h1 {
+          @include font(57px, 67px, 500);
+        }
+      }
+    }
+
+    .connect {
+      .connect-item {
+        min-height: 500px;
+
+        .connect-act {
+          max-width: 700px;
+
+          h2 {
+            @include font(34px, 40px, 400);
+          }
+
+          p {
+            @include font(19px, 28px, 400);
+          }
+        }
+      }
+    }
+  }
+}
