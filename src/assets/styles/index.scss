@@ -128,6 +128,10 @@ main {
   background: #000;
   min-height: 100vh;
 
+  &.white-bg {
+    background: #fff;
+  }
+
 
   //HEADLINE SECTION---------------------------------------------------------------------------------
   .headline {
@@ -280,6 +284,54 @@ main {
       @include background("../images/5.svg", center, no-repeat, cover);
     }
   }
+
+  // Forms==================================================
+  .form-section {
+    background: #fff;
+    width: 98%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 50px 5%;
+    @include flex(column, stretch, flex-start, 10px);
+
+    .io-logo {
+      width: 170px;
+      align-self: flex-end;
+    }
+
+    h2 {
+      @include font(40px, 40px, 700);
+    }
+
+    h4 {
+      @include font(24px, 84px, 400);
+      letter-spacing: 0.75px;
+    }
+
+    form {
+      @include flex(column, stretch, flex-start, 24px);
+
+      .input-div {
+        @include flex(column, stretch, flex-start, 11px);
+
+        label {
+          @include font(16px, 18px, 500);
+        }
+
+        input {
+          background: linear-gradient(0deg, #EDF2F7, #EDF2F7), #FFFFFF;
+          border: 1px solid #E0E4EC;
+          border-radius: 8px;
+          height: 52px;
+          padding-left: 15px;
+        }
+      }
+
+      .btn-logo {
+        @include flex(row, center, space-between, 0);
+      }
+    }
+  }
 }
 
 
@@ -375,6 +427,10 @@ footer {
 
     .connect {
       min-height: 400px;
+    }
+
+    .form-section {
+      padding: 100px 6%;
     }
   }
 }

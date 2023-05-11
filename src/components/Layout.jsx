@@ -4,17 +4,11 @@ import Footer from "./Footer";
 import { useState } from "react";
 
 const Layout = () => {
-  const [show, setShow] = useState(true);
-
-  const handleBtn = () => {
-    setShow(false);
-  };
-
   return (
     <>
-      <Header showBtn="true" />
+      <Header />
 
-      <Outlet context={[show, setShow]} />
+      <Outlet />
 
       <Footer />
     </>

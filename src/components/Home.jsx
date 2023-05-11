@@ -4,21 +4,16 @@ import Counter from "./Counter";
 import Headline from "./Headline";
 import MainFooter from "./MainFooter";
 import { useOutletContext } from "react-router-dom";
+import Form from "./Forms";
 
-const Home = () => {
-  const [show, setShow] = useOutletContext();
-  useEffect(() => {
-    setShow(true);
-  })
-
-  return (
-    <main>
-      <Headline />
-      <Counter />
-      <Connect />
-      <MainFooter />
-    </main>
-  );
-};
+const Home = () => (
+  <main>
+    <Headline />
+    <Counter />
+    <Connect />
+    <MainFooter />
+    <Form />
+  </main>
+);
 
 export default Home;

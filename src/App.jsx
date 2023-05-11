@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./components/Home";
 import NoPage from "./components/NoPage";
+import Form from "./components/Forms";
 
 const App = () => (
   <BrowserRouter>
