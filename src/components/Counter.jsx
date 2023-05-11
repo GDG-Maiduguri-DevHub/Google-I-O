@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Counter = () => {
-  const eventDate = new Date("2023/06/24 10:00:00");
+  const eventDate = new Date("2023/06/22 09:00:00");
   let [date, setDate] = useState({
     days: "",
     hours: "",
