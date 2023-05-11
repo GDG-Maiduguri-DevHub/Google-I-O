@@ -104,6 +104,10 @@ img {
   @include font(11px, 15px, 200);
 }
 
+.hidden {
+  overflow-y: hidden;
+}
+
 
 // HEADER STYLING----------------------------------------------------------------------------------
 header {
@@ -284,54 +288,6 @@ main {
       @include background("../images/5.png", center, no-repeat, cover);
     }
   }
-
-  // Forms==================================================
-  .form-section {
-    background: #fff;
-    width: 98%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 50px 5%;
-    @include flex(column, stretch, flex-start, 10px);
-
-    .io-logo {
-      width: 170px;
-      align-self: flex-end;
-    }
-
-    h2 {
-      @include font(40px, 40px, 700);
-    }
-
-    h4 {
-      @include font(24px, 84px, 400);
-      letter-spacing: 0.75px;
-    }
-
-    form {
-      @include flex(column, stretch, flex-start, 24px);
-
-      .input-div {
-        @include flex(column, stretch, flex-start, 11px);
-
-        label {
-          @include font(16px, 18px, 500);
-        }
-
-        input {
-          background: linear-gradient(0deg, #EDF2F7, #EDF2F7), #FFFFFF;
-          border: 1px solid #E0E4EC;
-          border-radius: 8px;
-          height: 52px;
-          padding-left: 15px;
-        }
-      }
-
-      .btn-logo {
-        @include flex(row, center, space-between, 0);
-      }
-    }
-  }
 }
 
 
@@ -340,6 +296,72 @@ footer {
   text-align: center;
   padding: 10px;
   background: #000;
+}
+
+// Forms==================================================
+.form-section {
+  background: #fff;
+  width: 98%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 70px 5%;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  @include flex(column, stretch, flex-start, 10px);
+
+  .close-btn {
+    cursor: pointer;
+    padding: 10px;
+    width: fit-content;
+    font-size: 30px;
+    position: absolute;
+    top: 0px;
+    right: 10px;
+  }
+
+  .io-logo {
+    width: 150px;
+
+    &.end {
+      align-self: flex-end;
+    }
+  }
+
+  h2 {
+    @include font(30px, 38px, 700);
+  }
+
+  h4 {
+    @include font(20px, 30px, 400);
+    margin-bottom: 20px;
+    letter-spacing: 0.75px;
+  }
+
+  form {
+    @include flex(column, stretch, flex-start, 24px);
+
+    .input-div {
+      @include flex(column, stretch, flex-start, 11px);
+
+      label {
+        @include font(16px, 18px, 500);
+      }
+
+      input {
+        background: linear-gradient(0deg, #EDF2F7, #EDF2F7), #FFFFFF;
+        border: 1px solid #E0E4EC;
+        border-radius: 8px;
+        height: 52px;
+        padding-left: 15px;
+      }
+    }
+
+    .btn-logo {
+      @include flex(row, center, space-between, 0);
+    }
+  }
 }
 
 
@@ -428,9 +450,21 @@ footer {
     .connect {
       min-height: 400px;
     }
+  }
 
-    .form-section {
-      padding: 100px 6%;
+  .form-section {
+    padding: 120px 6%;
+
+    .close-btn {
+      top: 10px
+    }
+
+    h2 {
+      @include font(40px, 40px, 700);
+    }
+
+    h4 {
+      @include font(24px, 84px, 400);
     }
   }
 }

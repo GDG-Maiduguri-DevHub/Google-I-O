@@ -1,40 +1,48 @@
 import logo from "../assets/images/logo.svg";
 import iologo from "../assets/images/io.svg";
+import { GrClose } from "react-icons/gr";
 
-const Form = () => (
-  <>
-    <section className="form-section">
+const NotifyForm = (props) => {
+  const {closeForm} = props;
 
-      <div className="io-logo">
-        <img src={iologo} alt="Google I/O logo" />
-      </div>
-      
-      <div className="black-text">
-        <h2>Get notified</h2>
-        <h4>Get updates on the IO Extended 2023 event</h4>
-      </div>
-
-      <form action="">
-        <div className="input-div">
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Please enter your email" required />
+  return (
+    <>
+      <section className="form-section">
+        <div className="close-btn" onClick={closeForm}>
+          <GrClose />
         </div>
 
-        <div className="input-div">
-          <label htmlFor="number">Phone number</label>
-          <input type="tel" id="number" name="number" placeholder="+234 Enter phone number" required />
+        <div className="io-logo end">
+          <img src={iologo} alt="Google I/O logo" />
         </div>
         
-        <div className="btn-logo">
-          <div className="io-logo">
-            <img src={logo} alt="GDG logo" />
+        <div className="black-text">
+          <h2>Get notified</h2>
+          <h4>Get updates on the IO Extended 2023 event</h4>
+        </div>
+
+        <form action="">
+          <div className="input-div">
+            <label htmlFor="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Please enter your email" required />
           </div>
 
-          <button className="btn btn1 white-text">Notify me</button>
-        </div>
-      </form>
-    </section>
-  </>
-);
+          <div className="input-div">
+            <label htmlFor="number">Phone number</label>
+            <input type="tel" id="number" name="number" placeholder="+234 Enter phone number" required />
+          </div>
+          
+          <div className="btn-logo">
+            <div className="io-logo">
+              <img src={logo} alt="GDG logo" />
+            </div>
 
-export default Form;
+            <button className="btn btn1 white-text">Notify me</button>
+          </div>
+        </form>
+      </section>
+    </>
+  );
+};
+
+export default NotifyForm;
