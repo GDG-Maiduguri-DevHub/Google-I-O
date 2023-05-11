@@ -1,15 +1,24 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import { useState } from "react";
 
-const Layout = () => (
-  <>
-    <Header />
+const Layout = () => {
+  const [show, setShow] = useState(true);
 
-    <Outlet />
+  const handleBtn = () => {
+    setShow(false);
+  };
 
-    <Footer />
-  </>
-);
+  return (
+    <>
+      <Header showBtn="true" />
+
+      <Outlet context={[show, setShow]} />
+
+      <Footer />
+    </>
+  );
+};
 
 export default Layout;

@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
-import pic1 from "../assets/images/1.svg";
 
 const Headline = () => (
   <section className="headline container">
     <figure className="headline-figure">
-      {/* <img src={pic1} alt="Picture of past event" /> */}
     </figure>
 
     <div className="headline-act">

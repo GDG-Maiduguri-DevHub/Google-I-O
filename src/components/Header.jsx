@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.svg";
 import iologo from "../assets/images/io.svg";
 
-const Header = () => (
+const Header = (props) => (
   <header className="container">
     <div className="logo">
       <Link to="/">
@@ -14,11 +14,11 @@ const Header = () => (
         <img src={iologo} alt="Google I/O logo" />
     </div>
 
-    <div className="btn-div">
+    {props.showBtn != "true" && <div className="btn-div">
       <Link to="*" className="btn btn1 white-text">
         Notify me
       </Link>
-    </div>
+    </div>}
   </header>
 );
 
