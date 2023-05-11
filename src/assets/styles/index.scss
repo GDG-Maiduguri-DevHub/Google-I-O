@@ -143,7 +143,7 @@ main {
       overflow: hidden;
       min-height: 300px;
       flex: 60%;
-      @include background("../images/1.svg", center, no-repeat, cover)
+      @include background("../images/1.png", center, no-repeat, cover)
     }
     .headline-act {
       border-radius: 12px;
@@ -281,7 +281,7 @@ main {
     div {
       height: 30vh;
       border-radius: 20px;
-      @include background("../images/5.svg", center, no-repeat, cover);
+      @include background("../images/5.png", center, no-repeat, cover);
     }
   }
 
