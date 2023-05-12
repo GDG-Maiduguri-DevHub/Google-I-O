@@ -5,9 +5,10 @@ import Headline from "./Headline";
 import MainFooter from "./MainFooter";
 import SponsorForm from "./SponsorForm";
 import { useState } from "react";
+import Success from "./Success";
 
 const Home = () => {
-  const [openForm] = useOutletContext();
+  const [openForm, closeSuccess, notify] = useOutletContext();
   const [sponsor, setSponsor] = useState(false);
   const openSponForm = () => {
     setSponsor(true);
@@ -27,6 +28,7 @@ const Home = () => {
       <Connect />
       <MainFooter />
     </main>
+    {notify.success && <Success closeSuccess={closeSuccess} />}
     {sponsor && <SponsorForm closeSponForm={closeSponForm} />}
     </>
   );

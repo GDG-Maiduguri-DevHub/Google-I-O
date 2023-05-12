@@ -5,14 +5,22 @@ import NotifyForm from "./Forms";
 import { useState } from "react";
 
 const Layout = () => {
-  const [notify, setNotify] = useState(false);
+  const [notify, setNotify] = useState({
+    form: false,
+    success: false,
+  });
   const openForm = () => {
-    setNotify(true);
+    setNotify((state) => ({...state, form: true}));
     document.body.classList.add("hidden");
   }
 
+  const closeSuccess = () => {
+    setNotify((state) => ({...state, success: false}));
+    document.body.classList.remove("hidden");
+  }
+
   const closeForm = () => {
-    setNotify(false);
+    setNotify((state) => ({...state, form: false}));
     document.body.classList.remove("hidden");
   }
 
@@ -20,9 +28,9 @@ const Layout = () => {
     <>
       <Header openForm={openForm} />
 
-      <Outlet context={[openForm]} />
+      <Outlet context={[openForm, closeSuccess, notify]} />
 
-      {notify && <NotifyForm closeForm={closeForm} />}
+      {notify.form && <NotifyForm closeForm={closeForm} />}
 
       <Footer />
     </>
