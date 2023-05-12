@@ -73,6 +73,10 @@ img {
   color: #000;
 }
 
+.green-text {
+  color: #0B9D58;
+}
+
 .btn {
   padding: 8px 18px 7px;
   @include font(14px, 14px, 500);
@@ -305,11 +309,27 @@ footer {
   max-width: 1200px;
   margin: auto;
   padding: 70px 5%;
+  height: 90%;
   position: fixed;
+  overflow: auto;
   top: 10%;
   left: 50%;
   transform: translateX(-50%);
   @include flex(column, stretch, flex-start, 10px);
+
+  &.sponsor {
+    padding-bottom: 10px;
+    @include background("../images/2.svg", right bottom, no-repeat, 30%);
+
+    .btn {
+      border: 1px solid #fff;
+    }
+
+    .p {
+      @include font(16px, 24px, 700);
+      margin-top: 50px;
+    }
+  }
 
   .close-btn {
     cursor: pointer;
@@ -349,12 +369,18 @@ footer {
         @include font(16px, 18px, 500);
       }
 
-      input {
+      input,
+      textarea {
         background: linear-gradient(0deg, #EDF2F7, #EDF2F7), #FFFFFF;
         border: 1px solid #E0E4EC;
         border-radius: 8px;
         height: 52px;
         padding-left: 15px;
+      }
+
+      textarea {
+        height: 150px;
+        padding-top: 10px
       }
     }
 
