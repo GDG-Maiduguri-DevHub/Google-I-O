@@ -2,12 +2,13 @@ import logo from "../assets/images/logo.svg";
 import iologo from "../assets/images/io.svg";
 import { GrClose } from "react-icons/gr";
 
-const SponsorForm = () => {
+const SponsorForm = (props) => {
+  const {closeSponForm} = props;
 
   return (
     <>
       <section className="form-section sponsor">
-        <div className="close-btn">
+        <div className="close-btn" onClick={closeSponForm}>
           <GrClose />
         </div>
 

@@ -4,19 +4,30 @@ import Counter from "./Counter";
 import Headline from "./Headline";
 import MainFooter from "./MainFooter";
 import SponsorForm from "./SponsorForm";
+import { useState } from "react";
 
 const Home = () => {
   const [openForm] = useOutletContext();
+  const [sponsor, setSponsor] = useState(false);
+  const openSponForm = () => {
+    setSponsor(true);
+    document.body.classList.add("hidden");
+  }
+
+  const closeSponForm = () => {
+    setSponsor(false);
+    document.body.classList.remove("hidden");
+  }
 
   return (
     <>
     <main>
       <Headline openForm={openForm} />
-      <Counter />
+      <Counter openSponForm={openSponForm} />
       <Connect />
       <MainFooter />
     </main>
-    <SponsorForm />
+    {sponsor && <SponsorForm closeSponForm={closeSponForm} />}
     </>
   );
 };
