@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Counter = (props) => {
   const {openSponForm} = props;
-  const eventDate = new Date("2023/06/22 09:00:00");
+  const eventDate = new Date("2023/07/22 09:00:00");
   let [date, setDate] = useState({
     days: "",
     hours: "",
