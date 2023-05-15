@@ -3,6 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import NotifyForm from "./Forms";
 import { useState } from "react";
+import SponsorForm from "./SponsorForm";
 
 const Layout = () => {
   const [notify, setNotify] = useState({
@@ -10,6 +11,17 @@ const Layout = () => {
     success: false,
     failure: false,
   });
+  const [sponsor, setSponsor] = useState(false);
+  const openSponForm = () => {
+    setSponsor(true);
+    document.body.classList.add("hidden");
+  }
+
+  const closeSponForm = () => {
+    setSponsor(false);
+    document.body.classList.remove("hidden");
+  }
+
   const openForm = () => {
     setNotify((state) => ({...state, form: true}));
     document.body.classList.add("hidden");
@@ -42,9 +54,10 @@ const Layout = () => {
     <>
       <Header openForm={openForm} />
 
-      <Outlet context={[openForm, closeSuccess, notify, closeFailure, closeForm]} />
+      <Outlet context={[openForm, openSponForm, closeSuccess, notify, closeFailure, closeForm]} />
 
       {notify.form && <NotifyForm closeForm={closeForm} openSuccess={openSuccess} openFailure={openFailure} />}
+      {sponsor && <SponsorForm closeSponForm={closeSponForm} openSuccess={openSuccess} openFailure={openFailure} />}
 
       <Footer />
     </>

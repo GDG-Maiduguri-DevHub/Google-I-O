@@ -3,24 +3,12 @@ import Connect from "./Connect";
 import Counter from "./Counter";
 import Headline from "./Headline";
 import MainFooter from "./MainFooter";
-import SponsorForm from "./SponsorForm";
-import { useState } from "react";
 import Success from "./Success";
 import Failure from "./Failure";
 
 const Home = () => {
-  const [openForm, closeSuccess, notify, closeFailure, closeForm] = useOutletContext();
-  const [sponsor, setSponsor] = useState(false);
-  const openSponForm = () => {
-    setSponsor(true);
-    document.body.classList.add("hidden");
-  }
-
-  const closeSponForm = () => {
-    setSponsor(false);
-    document.body.classList.remove("hidden");
-  }
-
+  const [openForm, openSponForm, closeSuccess, notify, closeFailure, closeForm] = useOutletContext();
+  
   return (
     <>
     <main>
@@ -31,7 +19,6 @@ const Home = () => {
     </main>
     {notify.success && <Success closeSuccess={closeSuccess} />}
     {notify.failure && <Failure closeFailure={closeFailure} closeForm={closeForm} />}
-    {sponsor && <SponsorForm closeSponForm={closeSponForm} />}
     </>
   );
 };

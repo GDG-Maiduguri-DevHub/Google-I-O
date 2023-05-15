@@ -1,14 +1,17 @@
 import logo from "../assets/images/logo.svg";
 import iologo from "../assets/images/io.svg";
 import { GrClose } from "react-icons/gr";
+import { useRef, useState } from "react";
 
 const SponsorForm = (props) => {
-  const {closeSponForm} = props;
+  const number = useRef(null);
+  const mail = useRef(null);
+  const {closeSponForm, openSuccess, openFailure} = props;
   const [formData, setFormData] = useState({
     name: "",
+    message: "",
+    number: "",
     email: "",
-    phoneNumber: "",
-    message: ""
   });
 
   const handleChange = (e) => {
@@ -23,17 +26,23 @@ const SponsorForm = (props) => {
   const handleSUbmit = (e) => {
     e.preventDefault();
 
-    fetch("http://api.gdgmaiduguri.com/api/user/notify", {
+    fetch("http://api.gdgmaiduguri.com/api/user/sponsor", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(formData)
+      body: JSON.stringify({
+        nameOfOrganisation: `${formData.name} ${formData.number} ${formData.email}`,
+        message: formData.message
+      })
     })
     .then((res) => {
       if (res.ok) {
-        closeForm();
+        closeSponForm();
         openSuccess();
+      }
+      else {
+        openFailure();
       }
     })
   }
@@ -55,25 +64,25 @@ const SponsorForm = (props) => {
           <h4>Wish to sponsor this event?, please fill  details below or  send us a mail.</h4>
         </div>
 
-        <form action="">
+        <form action="" onSubmit={handleSUbmit}>
           <div className="input-div">
             <label htmlFor="name">Name or Organization Name</label>
-            <input type="text" id="name" name="name" placeholder="Please enter your name" required />
+            <input type="text" id="name" name="name" placeholder="Please enter your name" onChange={handleChange} value={formData.name} required />
           </div>
 
           <div className="input-div">
             <label htmlFor="message">Message</label>
-            <textarea name="message" id="message" cols="30" rows="10" placeholder="Write about how you wish to sponsor"></textarea>
+            <textarea name="message" id="message" cols="30" rows="10" onChange={handleChange} value={formData.message} placeholder="Write about how you wish to sponsor" />
           </div>
 
           <div className="input-div">
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Please enter your email" required />
+            <input type="email" id="email" name="email" ref={mail} onChange={handleChange} value={formData.email} placeholder="Please enter your email" required />
           </div>
 
           <div className="input-div">
             <label htmlFor="number">Phone number</label>
-            <input type="tel" id="number" name="number" placeholder="+234 Enter phone number" required />
+            <input type="tel" id="number" name="number" ref={number} onChange={handleChange} value={formData.number} placeholder="+234 Enter phone number" required />
           </div>
           
           <div className="btn-logo">
@@ -81,7 +90,7 @@ const SponsorForm = (props) => {
               <img src={logo} alt="GDG logo" />
             </div>
 
-            <button className="btn btn1 white-text" type="submit">Notify me</button>
+            <button className="btn btn1 white-text" type="submit">Sponsor</button>
           </div>
         </form>
 
