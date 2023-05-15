@@ -1,9 +1,45 @@
 import logo from "../assets/images/logo.svg";
 import iologo from "../assets/images/io.svg";
 import { GrClose } from "react-icons/gr";
+import { useState } from "react";
 
 const NotifyForm = (props) => {
-  const {closeForm} = props;
+  const {closeForm, openSuccess} = props;
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phoneNumber: "",
+  });
+
+  const handleChange = (e) => {
+    let newKey = e.currentTarget.name;
+    let val = e.currentTarget.value;
+    let newVal = {
+      [newKey]: val,
+    }
+    setFormData((state) => ({...state, ...newVal}));
+  }
+
+  const handleSUbmit = (e) => {
+    e.preventDefault();
+
+    fetch("http://api.gdgmaiduguri.com/api/user/notify", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    .then((res) => {
+      if (res.ok) {
+        closeForm();
+        openSuccess();
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+  }
 
   return (
     <>
@@ -21,15 +57,20 @@ const NotifyForm = (props) => {
           <h4>Get updates on the IO Extended 2023 event</h4>
         </div>
 
-        <form action="">
+        <form action="" onSubmit={handleSUbmit}>
+          <div className="input-div">
+            <label htmlFor="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Please enter your name" onChange={handleChange} value={formData.name} required />
+          </div>
+
           <div className="input-div">
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Please enter your email" required />
+            <input type="email" id="email" name="email" placeholder="Please enter your email" onChange={handleChange} value={formData.email} required />
           </div>
 
           <div className="input-div">
             <label htmlFor="number">Phone number</label>
-            <input type="tel" id="number" name="number" placeholder="+234 Enter phone number" required />
+            <input type="tel" id="number" name="phoneNumber" placeholder="Enter phone number (080....)" onChange={handleChange} value={formData.phoneNumber} required />
           </div>
           
           <div className="btn-logo">
@@ -37,7 +78,7 @@ const NotifyForm = (props) => {
               <img src={logo} alt="GDG logo" />
             </div>
 
-            <button className="btn btn1 white-text">Notify me</button>
+            <button className="btn btn1 white-text" type="submit">Notify me</button>
           </div>
         </form>
       </section>

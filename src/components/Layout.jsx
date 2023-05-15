@@ -14,6 +14,10 @@ const Layout = () => {
     document.body.classList.add("hidden");
   }
 
+  const openSuccess = () => {
+    setNotify((state) => ({...state, success: true}));
+  }
+
   const closeSuccess = () => {
     setNotify((state) => ({...state, success: false}));
     document.body.classList.remove("hidden");
@@ -30,7 +34,7 @@ const Layout = () => {
 
       <Outlet context={[openForm, closeSuccess, notify]} />
 
-      {notify.form && <NotifyForm closeForm={closeForm} />}
+      {notify.form && <NotifyForm closeForm={closeForm} openSuccess={openSuccess} />}
 
       <Footer />
     </>
