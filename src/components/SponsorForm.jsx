@@ -1,16 +1,14 @@
 import logo from "../assets/images/logo.svg";
 import iologo from "../assets/images/io.svg";
 import { GrClose } from "react-icons/gr";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 const SponsorForm = (props) => {
-  const number = useRef(null);
-  const mail = useRef(null);
   const {closeSponForm, openSuccess, openFailure} = props;
   const [formData, setFormData] = useState({
-    name: "",
+    nameOfOrganisation: "",
     message: "",
-    number: "",
+    phoneNumber: "",
     email: "",
   });
 
@@ -31,10 +29,7 @@ const SponsorForm = (props) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        nameOfOrganisation: `${formData.name} ${formData.number} ${formData.email}`,
-        message: formData.message
-      })
+      body: JSON.stringify(formData)
     })
     .then((res) => {
       if (res.ok) {
@@ -67,7 +62,7 @@ const SponsorForm = (props) => {
         <form action="" onSubmit={handleSUbmit}>
           <div className="input-div">
             <label htmlFor="name">Name or Organization Name</label>
-            <input type="text" id="name" name="name" placeholder="Please enter your name" onChange={handleChange} value={formData.name} required />
+            <input type="text" id="name" name="nameOfOrganisation" placeholder="Please enter your name" onChange={handleChange} value={formData.nameOfOrganisation} required />
           </div>
 
           <div className="input-div">
@@ -77,12 +72,12 @@ const SponsorForm = (props) => {
 
           <div className="input-div">
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" ref={mail} onChange={handleChange} value={formData.email} placeholder="Please enter your email" required />
+            <input type="email" id="email" name="email" onChange={handleChange} value={formData.email} placeholder="Please enter your email" required />
           </div>
 
           <div className="input-div">
             <label htmlFor="number">Phone number</label>
-            <input type="tel" id="number" name="number" ref={number} onChange={handleChange} value={formData.number} placeholder="+234 Enter phone number" required />
+            <input type="tel" id="number" name="phoneNumber" onChange={handleChange} value={formData.phoneNumber} placeholder="+234 Enter phone number" required />
           </div>
           
           <div className="btn-logo">
