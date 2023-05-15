@@ -73,6 +73,10 @@ img {
   color: #000;
 }
 
+.green-text {
+  color: #0B9D58;
+}
+
 .btn {
   padding: 8px 18px 7px;
   @include font(14px, 14px, 500);
@@ -104,6 +108,10 @@ img {
   @include font(11px, 15px, 200);
 }
 
+.hidden {
+  overflow-y: hidden;
+}
+
 
 // HEADER STYLING----------------------------------------------------------------------------------
 header {
@@ -128,6 +136,10 @@ main {
   background: #000;
   min-height: 100vh;
 
+  &.white-bg {
+    background: #fff;
+  }
+
 
   //HEADLINE SECTION---------------------------------------------------------------------------------
   .headline {
@@ -139,7 +151,7 @@ main {
       overflow: hidden;
       min-height: 300px;
       flex: 60%;
-      @include background("../images/1.svg", center, no-repeat, cover)
+      @include background("../images/1.png", center, no-repeat, cover)
     }
     .headline-act {
       border-radius: 12px;
@@ -277,7 +289,7 @@ main {
     div {
       height: 30vh;
       border-radius: 20px;
-      @include background("../images/5.svg", center, no-repeat, cover);
+      @include background("../images/5.png", center, no-repeat, cover);
     }
   }
 }
@@ -288,6 +300,104 @@ footer {
   text-align: center;
   padding: 10px;
   background: #000;
+}
+
+// Forms==================================================
+.form-section {
+  z-index: 100;
+  background: #fff;
+  width: 98%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 70px 5%;
+  height: 90%;
+  position: fixed;
+  overflow: auto;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  @include flex(column, stretch, flex-start, 10px);
+
+  &.popup {
+    align-items: center;
+    height: fit-content;
+    min-height: 300px;
+    text-align: center;
+    max-width: 900px;
+    z-index: 1000;
+  }
+
+  &.sponsor {
+    padding-bottom: 10px;
+    @include background("../images/2.svg", right bottom, no-repeat, 30%);
+
+    .btn {
+      border: 1px solid #fff;
+    }
+
+    .p {
+      @include font(16px, 24px, 700);
+      margin-top: 50px;
+    }
+  }
+
+  .close-btn {
+    cursor: pointer;
+    padding: 10px;
+    width: fit-content;
+    font-size: 30px;
+    position: absolute;
+    top: 0px;
+    right: 10px;
+  }
+
+  .io-logo {
+    width: 150px;
+
+    &.end {
+      align-self: flex-end;
+    }
+  }
+
+  h2 {
+    @include font(30px, 38px, 700);
+  }
+
+  h4 {
+    @include font(20px, 30px, 400);
+    margin-bottom: 20px;
+    letter-spacing: 0.75px;
+  }
+
+  form {
+    @include flex(column, stretch, flex-start, 24px);
+
+    .input-div {
+      @include flex(column, stretch, flex-start, 11px);
+
+      label {
+        @include font(16px, 18px, 500);
+      }
+
+      input,
+      textarea {
+        background: linear-gradient(0deg, #EDF2F7, #EDF2F7), #FFFFFF;
+        border: 1px solid #E0E4EC;
+        border-radius: 8px;
+        height: 52px;
+        padding-left: 15px;
+      }
+
+      textarea {
+        height: 150px;
+        padding-top: 10px
+      }
+    }
+
+    .btn-logo {
+      @include flex(row, center, space-between, 0);
+    }
+  }
 }
 
 
@@ -375,6 +485,30 @@ footer {
 
     .connect {
       min-height: 400px;
+    }
+  }
+
+  .form-section {
+    padding: 120px 6%;
+
+    &.sponsor {
+      form {
+        width: 75%;
+        max-width: 1000px;
+        margin: auto;
+      }
+    }
+
+    .close-btn {
+      top: 10px
+    }
+
+    h2 {
+      @include font(40px, 40px, 700);
+    }
+
+    h4 {
+      @include font(24px, 84px, 400);
     }
   }
 }

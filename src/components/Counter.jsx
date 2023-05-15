@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Counter = () => {
-  const eventDate = new Date("2023/06/24 10:00:00");
+const Counter = (props) => {
+  const {openSponForm} = props;
+  const eventDate = new Date("2023/06/22 09:00:00");
   let [date, setDate] = useState({
     days: "",
     hours: "",
@@ -82,7 +83,7 @@ const Counter = () => {
         <div className="center-left">
           <h3>For Sponsorship</h3>
           <p>Join to build the tech community</p>
-          <Link to="/" className="btn btn2">Sponsor Now!</Link>
+          <Link onClick={openSponForm} className="btn btn2">Sponsor Now!</Link>
         </div>
       </div>
     </section>
