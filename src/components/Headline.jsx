@@ -10,7 +10,7 @@ const Headline = (props) => {
 
       <div className="headline-act">
         <div>
-          <h1 className="white-text">Let's go <br />It's Google I/O <br />June 24, 2023</h1>
+          <h1 className="white-text">Let's go <br />It's Google I/O <br />July 22, 2023</h1>
           <div>
             <p className="white-text small-text">Join in the city of Maiduguri</p>
             <p className="white-text small-text">Venue coming soon!</p>
