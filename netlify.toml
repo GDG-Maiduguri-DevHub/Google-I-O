@@ -3,3 +3,4 @@
   to = "http://api.gdgmaiduguri.com/api/user"
   status = 200
   force = true
+  headers = {X-From = "Netlify"}
