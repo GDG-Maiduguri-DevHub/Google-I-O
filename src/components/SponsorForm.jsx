@@ -26,7 +26,7 @@ const SponsorForm = (props) => {
   const handleSUbmit = (e) => {
     e.preventDefault();
 
-    fetch("http://api.gdgmaiduguri.com/api/user/sponsor", {
+    fetch(`/api/sponsor`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
