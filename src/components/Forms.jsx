@@ -23,7 +23,7 @@ const NotifyForm = (props) => {
   const handleSUbmit = (e) => {
     e.preventDefault();
 
-    fetch("http://api.gdgmaiduguri.com/api/user/notify", {
+    fetch(`/api/notify`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
