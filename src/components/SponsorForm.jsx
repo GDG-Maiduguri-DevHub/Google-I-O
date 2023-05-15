@@ -4,6 +4,40 @@ import { GrClose } from "react-icons/gr";
 
 const SponsorForm = (props) => {
   const {closeSponForm} = props;
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phoneNumber: "",
+    message: ""
+  });
+
+  const handleChange = (e) => {
+    let newKey = e.currentTarget.name;
+    let val = e.currentTarget.value;
+    let newVal = {
+      [newKey]: val,
+    }
+    setFormData((state) => ({...state, ...newVal}));
+  }
+
+  const handleSUbmit = (e) => {
+    e.preventDefault();
+
+    fetch("http://api.gdgmaiduguri.com/api/user/notify", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    .then((res) => {
+      if (res.ok) {
+        closeForm();
+        openSuccess();
+      }
+    })
+  }
+
 
   return (
     <>
@@ -47,7 +81,7 @@ const SponsorForm = (props) => {
               <img src={logo} alt="GDG logo" />
             </div>
 
-            <button className="btn btn1 white-text">Notify me</button>
+            <button className="btn btn1 white-text" type="submit">Notify me</button>
           </div>
         </form>
 

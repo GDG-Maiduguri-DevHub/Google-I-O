@@ -8,6 +8,7 @@ const Layout = () => {
   const [notify, setNotify] = useState({
     form: false,
     success: false,
+    failure: false,
   });
   const openForm = () => {
     setNotify((state) => ({...state, form: true}));
@@ -23,6 +24,15 @@ const Layout = () => {
     document.body.classList.remove("hidden");
   }
 
+  const openFailure = () => {
+    setNotify((state) => ({...state, failure: true}));
+  }
+
+  const closeFailure = () => {
+    setNotify((state) => ({...state, failure: false}));
+    document.body.classList.remove("hidden");
+  }
+
   const closeForm = () => {
     setNotify((state) => ({...state, form: false}));
     document.body.classList.remove("hidden");
@@ -32,9 +42,9 @@ const Layout = () => {
     <>
       <Header openForm={openForm} />
 
-      <Outlet context={[openForm, closeSuccess, notify]} />
+      <Outlet context={[openForm, closeSuccess, notify, closeFailure, closeForm]} />
 
-      {notify.form && <NotifyForm closeForm={closeForm} openSuccess={openSuccess} />}
+      {notify.form && <NotifyForm closeForm={closeForm} openSuccess={openSuccess} openFailure={openFailure} />}
 
       <Footer />
     </>

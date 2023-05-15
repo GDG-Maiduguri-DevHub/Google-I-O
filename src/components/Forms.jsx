@@ -4,7 +4,7 @@ import { GrClose } from "react-icons/gr";
 import { useState } from "react";
 
 const NotifyForm = (props) => {
-  const {closeForm, openSuccess} = props;
+  const {closeForm, openSuccess, openFailure} = props;
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -35,9 +35,9 @@ const NotifyForm = (props) => {
         closeForm();
         openSuccess();
       }
-    })
-    .catch((err) => {
-      console.log(err);
+      else {
+        openFailure();
+      }
     })
   }
 

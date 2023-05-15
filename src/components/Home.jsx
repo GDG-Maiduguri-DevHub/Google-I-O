@@ -6,9 +6,10 @@ import MainFooter from "./MainFooter";
 import SponsorForm from "./SponsorForm";
 import { useState } from "react";
 import Success from "./Success";
+import Failure from "./Failure";
 
 const Home = () => {
-  const [openForm, closeSuccess, notify] = useOutletContext();
+  const [openForm, closeSuccess, notify, closeFailure, closeForm] = useOutletContext();
   const [sponsor, setSponsor] = useState(false);
   const openSponForm = () => {
     setSponsor(true);
@@ -29,6 +30,7 @@ const Home = () => {
       <MainFooter />
     </main>
     {notify.success && <Success closeSuccess={closeSuccess} />}
+    {notify.failure && <Failure closeFailure={closeFailure} closeForm={closeForm} />}
     {sponsor && <SponsorForm closeSponForm={closeSponForm} />}
     </>
   );
