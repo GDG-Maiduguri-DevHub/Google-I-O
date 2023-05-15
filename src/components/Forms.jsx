@@ -3,6 +3,7 @@ import iologo from "../assets/images/io.svg";
 import { GrClose } from "react-icons/gr";
 import { useState } from "react";
 
+
 const NotifyForm = (props) => {
   const {closeForm, openSuccess, openFailure} = props;
   const [formData, setFormData] = useState({
